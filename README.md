@@ -2,7 +2,7 @@
 
 | Name                        | NRP        |
 |-----------------------------|------------|
-|Pascal Roger Junior Tauran   | 5025211062 |
+|Pascal Roger Junior Tauran   | 5025211072 |
 |Faraihan Rafi Adityawarman   | 5025211074 |
 
 Screenshots
