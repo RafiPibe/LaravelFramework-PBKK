@@ -78,12 +78,12 @@ class RegisterController extends Controller {
         }
 
         User::create([
-            'name' => $name,
-            'address' => $address,
-            'email' => $request->email,
-            'age' => $age,
-            'shoeSize' => $age,
-            'password' => Hash::make($request->password),
+            $name = $request->input('name'),
+            $address = $request->input('address'),
+            $email = $request->input('email'),
+            $age = $request->input('age'),
+            $shoeSize = $request->input('shoeSize'),
+            'password' => bcrypt($request->password),
             'image' => $imageBase64
         ]);
 
