@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->integer('age');
             $table->float('shoe_size');
-            $table->string('picture_path');
-            $table->timestamps();
+            $table->text('image');
         });
+
+        DB::statement('ALTER TABLE users MODIFY image LONGTEXT');
     }
 
 

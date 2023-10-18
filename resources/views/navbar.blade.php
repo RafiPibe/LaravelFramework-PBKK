@@ -2,14 +2,37 @@
     use Illuminate\Support\Facades\Auth;
 @endphp
 
-<style>
-  .bg-black {
-    background-color: #1a1a1a;
-  }
+{{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
 
-  .bg-hollow {
-    background-color: #141516;
-  }
+<style>
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    header nav ul {
+        list-style: none;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    header nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    }
+    .bg-black {
+    background-color: #1a1a1a;
+    }
+
+    .bg-hollow {
+        background-color: #141516;
+    }
 </style>
 
 <div>

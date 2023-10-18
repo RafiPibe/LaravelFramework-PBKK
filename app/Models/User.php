@@ -20,10 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'address',       // Add 'address' field
-        'age',           // Add 'age' field
-        'shoe_size',     // Add 'shoe_size' field
-        'picture_path',  // Add 'picture_path' field
+        'address',
+        'age',
+        'shoe_size',
+        'image',
     ];
 
     /**

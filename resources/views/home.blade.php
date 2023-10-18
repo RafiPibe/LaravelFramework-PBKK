@@ -13,28 +13,6 @@ body {
     background-color: #f5f5f5;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-}
-
-header nav ul {
-    list-style: none;
-}
-
-header nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
 .hero {
     text-align: center;
     padding: 100px 0;
@@ -125,15 +103,7 @@ footer {
 
 </style>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShoeHub - Home</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-</head>
-<body>
+<main>
     <section class="hero">
         <h1>Welcome to ShoeHub</h1>
         <p>Discover the latest trends in footwear</p>
@@ -164,9 +134,6 @@ footer {
             <a href="#">View Details</a>
         </div>
     </section>
+</main>
 
-    <footer>
-        <p>&copy; 2023 ShoeHub. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+@endsection

@@ -18,19 +18,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Route::get('/', [HomeController::class, 'index']);
-
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/register', [RegisterController::class, 'showForm']);
-Route::post('/register', [RegisterController::class, 'submitForm'])->name('register.submit');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::get('/register', [RegisterController::class, 'showRegisterForm']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
