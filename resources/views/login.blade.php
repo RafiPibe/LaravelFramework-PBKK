@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>Register Form</title>
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <title>ShoeHub-Login</title>
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,6 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            align: center;
         }
 
         .form-container h1 {
@@ -28,33 +27,33 @@
             margin-top: 0;
         }
 
-        .register-form {
+        .login-form {
             background-color: #fff;
             padding: 2%;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             width: 400px;
             max-width: 100%;
-            text-align: center; /* Center text within the form */
+            text-align: center;
         }
 
-        .register-form p {
+        .login-form p {
             margin: 0;
             padding: 5px 0;
-            text-align: left; /* Left-align the labels */
+            text-align: left;
         }
 
-        .register-form input {
+        .login-form input {
             width: 95%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            margin: 0 auto; /* Center the input box */
-            display: block; /* Make the input elements stack vertically */
+            margin: 0 auto;
+            display: block;
         }
 
-        .register-form button {
+        .login-form button {
             width: 100%;
             padding: 10px;
             background-color: #007bff;
@@ -64,7 +63,7 @@
             cursor: pointer;
         }
 
-        .register-form button:hover {
+        .login-form button:hover {
             background-color: #0056b3;
         }
 
@@ -79,6 +78,18 @@
         .alert.success {
             background-color: #4CAF50;
         }
+
+        /* Style for the "Create an Account" link */
+        .create-account-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-account-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
         footer {
             position: absolute;
             bottom: 0;
@@ -91,42 +102,28 @@
     </style>
 </head>
 <body>
-    @if (session('success'))
-    <div class="alert success">
-        {{ session('success') }}
-    </div>
-    @endif
-
-    <div class="form-container">
-        <form class="register-form" action="{{ route('register.submit') }}" method="post" enctype="multipart/form-data">
-            @csrf
-            <h1>Register Form</h1>
-            <p>Name:</p>
-            <input type="text" name="name" placeholder="Name" required>
-
-            <p>Address:</p>
-            <input type="text" name="address" placeholder="Address" required>
-
-            <p>Email:</p>
-            <input type="email" name="email" placeholder="Email" required>
-
-            <p>Age:</p>
-            <input type="number" name="age" placeholder="Age" required>
-
-            <p>Shoe Size:</p>
-            <input type="number" step="0.01" name="shoeSize" placeholder="Shoe Size" required>
-
-            <p>Image:</p>
-            <input type="file" name="picture" accept="image/*" required>
-            <button type="submit" name="submit">Register</button>
-        </form>
-    </div>
-
     @if (session('error'))
     <div class="alert">
         {{ session('error') }}
     </div>
     @endif
+
+    <div class="form-container">
+        <form class="login-form" action="{{ route('login.submit') }}" method="post">
+            @csrf
+            <h1>Login</h1>
+            <p>Email:</p>
+            <input type="email" name="email" placeholder="Email" required>
+
+            <p>Password:</p>
+            <input type="password" name="password" placeholder="Password" required>
+            
+            <button type="submit" name="submit">Login</button>
+        </form>
+        <div class="create-account-link">
+            <p>Don't have an account? <a href="/register">Create an Account</a></p>
+        </div>
+    </div>
 
     @if (session('success'))
     <div class="alert success">
