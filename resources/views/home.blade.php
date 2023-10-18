@@ -1,3 +1,6 @@
+@extends('master')
+@section('content')
+
 <style>
 
 body, h1, h2, p, ul, li {
@@ -131,17 +134,6 @@ footer {
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Men's Shoes</a></li>
-                <li><a href="#">Women's Shoes</a></li>
-                <li><a href="/login">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <section class="hero">
         <h1>Welcome to ShoeHub</h1>
         <p>Discover the latest trends in footwear</p>
