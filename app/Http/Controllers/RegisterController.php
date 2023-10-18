@@ -77,15 +77,9 @@ class RegisterController extends Controller {
             $imageBase64 = null;
         }
 
-        User::create([
-            $name = $request->input('name'),
-            $address = $request->input('address'),
-            $email = $request->input('email'),
-            $age = $request->input('age'),
-            $shoeSize = $request->input('shoeSize'),
-            'password' => bcrypt($request->password),
-            'image' => $imageBase64
-        ]);
+        $validatedData['password'] = bcrypt($validatedData['password']);
+
+        User::create($validatedData);
 
         return redirect('/login')->with('success', 'Registration Success!');
     }
