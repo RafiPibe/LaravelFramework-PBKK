@@ -59,28 +59,62 @@ class RegisterController extends Controller {
         }
     }
 
-    public function store(Request $request) {
-        $request->validate([
-            'name' => 'required',
-            'address' => 'required',
-            'email' => 'required|email|unique:users',
-            'age' => 'required|integer',
-            'shoeSize' => 'required|numeric|between:2.50,99.99',
-            'password' => 'required|min:5|max:255',
-            'image' => 'required|file|max:2048'
-        ]);
+    // public function store(Request $request) {
+    //     $validatedData = $request->validate([
+    //         'name' => 'required',
+    //         'address' => 'required',
+    //         'email' => 'required|email|unique:users',
+    //         'age' => 'required|integer',
+    //         'shoeSize' => 'required|numeric|between:2.50,99.99',
+    //         'password' => 'required|min:5|max:255',
+    //         'image' => 'required|file|max:2048'
+    //     ]);
 
-        $image = $request->file('image');
-        if ($image) {
-            $imageBase64 = base64_encode(file_get_contents($image));
-        } else {
-            $imageBase64 = null;
-        }
 
-        $validatedData['password'] = bcrypt($validatedData['password']);
+    //     $image = $request->file('image');
+    //     if ($image) {
+    //         $imageBase64 = base64_encode(file_get_contents($image));
+    //     } else {
+    //         $imageBase64 = null;
+    //     }
 
-        User::create($validatedData);
+    //     $validatedData['password'] = bcrypt($validatedData['password']);
 
-        return redirect('/login')->with('success', 'Registration Success!');
+    //     User::create($validatedData);
+
+    //     return redirect('/login')->with('success', 'Registration Success!');
+    // }
+
+    public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+        'address' => 'required',
+        'email' => 'required|email|unique:users',
+        'age' => 'required|integer',
+        'shoeSize' => 'required|numeric|between:2.50,99.99',
+        'password' => 'required|min:5|max:255',
+        'image' => 'required|file|max:2048'
+    ]);
+
+    $image = $request->file('image');
+    if ($image) {
+        $imageBase64 = base64_encode(file_get_contents($image));
+    } else {
+        $imageBase64 = null; // or any default value you want to use
     }
+
+    User::create([
+        'name' => $request->name,
+        'address' => $request->address,
+        'username' => $request->username,
+        'email' => $request->email,
+        'age' => $request->age,
+        'shoeSize'=> $request->shoeSize,
+        'password' => bcrypt($request->password),
+        'image' => $imageBase64
+    ]);
+
+    return redirect('/login')->with('success', 'Registration Success!');
+}
 }
