@@ -87,15 +87,15 @@ class RegisterController extends Controller {
 
     public function store(Request $request)
 {
-    $request->validate([
-        'name' => 'required',
-        'address' => 'required',
-        'email' => 'required|email|unique:users',
-        'age' => 'required|integer',
-        'shoeSize' => 'required|numeric|between:2.50,99.99',
-        'password' => 'required|min:5|max:255',
-        'image' => 'required|file|max:2048'
-    ]);
+    // $request->validate([
+    //     'name' => 'required',
+    //     'address' => 'required',
+    //     'email' => 'required|email|unique:users',
+    //     'age' => 'required|integer',
+    //     'shoeSize' => 'required|numeric|between:2.50,99.99',
+    //     'password' => 'required|min:5|max:255',
+    //     'image' => 'required|file|max:2048'
+    // ]);
 
     $image = $request->file('image');
     if ($image) {
@@ -104,13 +104,14 @@ class RegisterController extends Controller {
         $imageBase64 = null; // or any default value you want to use
     }
 
+
     User::create([
         'name' => $request->name,
         'address' => $request->address,
         'username' => $request->username,
         'email' => $request->email,
         'age' => $request->age,
-        'shoeSize'=> $request->shoeSize,
+        'shoe_size'=> 40.0,
         'password' => bcrypt($request->password),
         'image' => $imageBase64
     ]);
