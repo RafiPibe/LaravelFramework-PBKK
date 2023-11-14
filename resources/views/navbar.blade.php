@@ -26,6 +26,13 @@
         color: #fff;
         font-weight: bold;
     }
+
+    header nav ul li button {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+    }
+
     .bg-black {
     background-color: #1a1a1a;
     }
@@ -42,7 +49,16 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Men's Shoes</a></li>
                 <li><a href="#">Women's Shoes</a></li>
-                <li><a href="/login">Login</a></li>
+                {{-- <li><a href="/login">Login</a></li> --}}
+                @auth
+                    <li><a>{{ Auth::user()->name }}</a></li>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button typle="submit" class="btn btn-link">Logout</button>
+                    </form>
+                    @else
+                        <a href="/login"><i class="bi bi-box-arrow-in-right"></i> Log in</a>
+                @endauth
             </ul>
         </nav>
     </header>
