@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -8,9 +8,12 @@ use Tests\TestCase;
 
 class RegisterTest extends TestCase
 {
+    // use RefreshDatabase;
 
     public function test_register(): void
     {
+        $this->artisan('migrate:refresh --seed');
+
         $credentials = [
             'name' => 'John Doe',
             'address' => '123 Main St',
